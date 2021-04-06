@@ -1,0 +1,16 @@
+name: tests
+
+on:
+  pull_request:
+    branches: ['master', 'develop']
+
+jobs:
+  test_on_linux:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out
+      uses: actions/checkout@v2
+    - name: Run tests
+      run: swift test --enable-test-discovery
